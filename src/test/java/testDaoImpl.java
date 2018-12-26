@@ -89,9 +89,6 @@ public class testDaoImpl {
     @Test
     public void getConn() throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException, SQLException {
         String driverClass = "com.mysql.jdbc.Driver";
-//        String  url = "jdbc:mysql://localhost:3309/userList?useSSL=false&serverTimezone=UTC&characterEncoding=utf8&rewriteBatchedStatements=true
-//        name = root
-//        password = 123456
         Properties properties = new Properties();
 //        InputStream resourceAsStream = this.getClass().getClassLoader().getResourceAsStream("/mysql.properties");
         InputStream resourceAsStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("/mysql.properties");
