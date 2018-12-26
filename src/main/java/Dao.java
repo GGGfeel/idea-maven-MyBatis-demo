@@ -1,19 +1,22 @@
 import Entity.User;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author jingdu
  * @date 2018/12/19
  */
 public interface Dao {
-    boolean find(String userName);
+    boolean findUserName(String userName);
 
-    User find(String userName, String password);
+
+    User find(Map<String, String> map);
 
     Boolean add(User user);
 
-    Boolean delete(User user);
+    Boolean delete(Map<String, String> map);
 
     List<User> findAll();
 }

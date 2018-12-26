@@ -36,7 +36,7 @@ public class RegisterForm extends User{
      *         private String password; 密码不能为空，并且要是3-8的数字
      *         private String confirmPwd; 两次密码要一致
      *         private String email; 可以为空，不为空要是一个合法的邮箱
-     *         private String birthday; 可以为空，不为空时，要是一个合法的日期
+     *         private String birth; 可以为空，不为空时，要是一个合法的日期
      */
     
     public boolean validate() {
@@ -80,14 +80,14 @@ public class RegisterForm extends User{
             }
         }
 
-        // private String birthday; 可以为空，不为空时，要是一个合法的日期
-        if (birthday != null && !birthday.trim().equals("")) {
+        // private String birth; 可以为空，不为空时，要是一个合法的日期
+        if (birth != null && !birth.trim().equals("")) {
             try {
                 DateLocaleConverter conver = new DateLocaleConverter();
-                conver.convert(birthday);
+                conver.convert(birth);
             } catch (Exception e) {
                 isOk = false;
-                errors.put("birthday", "生日必须要是一个日期！！");
+                errors.put("birth", "生日必须要是一个日期！！");
             }
         }
 

@@ -26,12 +26,12 @@ public class User {
     protected String nickName;
 
     // 用户生日
-    protected String birthday;
+    protected String birth;
 
 
     @Override
     public String toString() {
         return "id:" + id + " userName: " + userName + " password: " + password +
-                " email:" + email + " birthday:" + birthday + " nickName:" + nickName;
+                " email:" + email + " birthday:" + birth + " nickName:" + nickName;
     }
 }

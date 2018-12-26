@@ -12,7 +12,7 @@ public class Service {
 
     public Boolean register(User user) throws UserExistException {
 
-        if (dao.find(user.getUserName())) {
+        if (dao.findUserName(user.getUserName())) {
             System.out.println(user.getUserName() + "已经注册过");
             throw new UserExistException();
         }
@@ -23,9 +23,9 @@ public class Service {
     }
 
     public User login(String userName, String password) {
-        User res = dao.find(userName, password);
+//        User res = dao.find(userName, password);
 
 
-        return res;
+        return null;
     }
 }

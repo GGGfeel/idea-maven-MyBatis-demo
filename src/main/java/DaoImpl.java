@@ -3,6 +3,7 @@ import Utils.JDBCUtils;
 
 import java.sql.*;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author jingdu
@@ -23,7 +24,7 @@ public class DaoImpl implements Dao {
             preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, user.getUserName());
             preparedStatement.setString(2, user.getNickName());
-            preparedStatement.setString(3, user.getBirthday());
+            preparedStatement.setString(3, user.getBirth());
             preparedStatement.setString(4, user.getPassword());
             preparedStatement.setString(5, user.getEmail());
             preparedStatement.setString(6, user.getId());
@@ -40,6 +41,11 @@ public class DaoImpl implements Dao {
             JDBCUtils.release(conn, preparedStatement, rs);
         }
         return false;
+    }
+
+    @Override
+    public Boolean delete(Map<String, String> map) {
+        return null;
     }
 
     @Override
@@ -79,7 +85,7 @@ public class DaoImpl implements Dao {
     }
 
     @Override
-    public boolean find(String userName) {
+    public boolean findUserName(String userName) {
         Connection connection = null;
         ResultSet resultSet = null;
         PreparedStatement preparedStatement = null;
@@ -102,24 +108,29 @@ public class DaoImpl implements Dao {
     }
 
     @Override
-    public Boolean delete(User user) {
-        Connection connection = null;
-        ResultSet resultSet = null;
-        PreparedStatement preparedStatement = null;
-        try {
-            connection = JDBCUtils.getConnection();
-            String str = "DELETE * FROM user where userName = ?";
-            preparedStatement.setString(1, user.getUserName());
-            boolean execute = preparedStatement.execute(str);
-            if (execute) {
-                return true;
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        } finally {
-            JDBCUtils.release(connection, preparedStatement, resultSet);
-        }
-        return false;
+    public User find(Map<String, String> map) {
+        return null;
     }
+
+//    @Override
+//    public Boolean delete(User user) {
+//        Connection connection = null;
+//        ResultSet resultSet = null;
+//        PreparedStatement preparedStatement = null;
+//        try {
+//            connection = JDBCUtils.getConnection();
+//            String str = "DELETE * FROM user where userName = ?";
+//            preparedStatement.setString(1, user.getUserName());
+//            boolean execute = preparedStatement.execute(str);
+//            if (execute) {
+//                return true;
+//            }
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        } finally {
+//            JDBCUtils.release(connection, preparedStatement, resultSet);
+//        }
+//        return false;
+//    }
 
 }

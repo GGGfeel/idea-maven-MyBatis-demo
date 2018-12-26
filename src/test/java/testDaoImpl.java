@@ -13,9 +13,8 @@ import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.*;
 import java.util.Date;
-import java.util.List;
-import java.util.Properties;
 
 /**
  * @author jingdu
@@ -31,9 +30,22 @@ public class testDaoImpl {
         Logger logger = Logger.getLogger(testDaoImpl.class);
 
         DaoMyBaitsImpl daoMyBaits = new DaoMyBaitsImpl();
-        List<User> depts = daoMyBaits.findAll();
-        logger.debug(depts);
+        Map<String, String> param = new HashMap<>();
+        param.put("userName", "wangyingyue");
+        param.put("password", "wyy");
+        Boolean delete = daoMyBaits.delete(param);
+//        User userRes = daoMyBaits.find(param);
+//        List<User> depts = daoMyBaits.findAll();
 
+//        User user = new User();
+//        user.setUserName("wangyingyue");
+//        user.setNickName("wyy");
+//        user.setId("2");
+//        user.setBirthday(LocalDateTime.now().toString());
+//        user.setPassword("wyy");
+//        user.setEmail("wyy@");
+//        Boolean add = daoMyBaits.add(user);
+        System.out.println(delete);
     }
 
 
@@ -43,7 +55,7 @@ public class testDaoImpl {
         user.setUserName("wangyingyue");
         user.setNickName("wyy");
         user.setId("2");
-        user.setBirthday(LocalDateTime.now().toString());
+        user.setBirth(LocalDateTime.now().toString());
         user.setPassword("wyy");
         user.setEmail("wyy@");
 

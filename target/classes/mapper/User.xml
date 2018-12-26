@@ -4,4 +4,19 @@
     <select id="findAll" resultType="User">
         SELECT  * FROM user
     </select>
+    <select id="find" resultType="User">
+        SELECT * FROM user WHERE userName=#{userName} AND password=#{password}
+    </select>
+
+    <select id="findUserName" resultType="boolean">
+        SELECT * FROM user WHERE userName=#{userName}
+    </select>
+
+    <delete id="delete">
+          DELETE  FROM user WHERE userName=#{userName} AND password=#{password}
+    </delete>
+
+    <insert id="add" parameterType="User">
+        INSERT INTO user (userName,nickName,birth,password,email,id) VALUES (#{userName},#{nickName},#{birth},#{password},#{email},#{id})
+    </insert>
 </mapper>
